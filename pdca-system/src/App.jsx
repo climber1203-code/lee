@@ -1,11 +1,13 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { DataProvider } from './context/DataContext';
 import AppShell from './components/layout/AppShell';
-import DashboardPage from './pages/DashboardPage';
-import DataEntryPage from './pages/DataEntryPage';
-import MonthlyReportPage from './pages/MonthlyReportPage';
-import PublicReportPage from './pages/PublicReportPage';
+
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const DataEntryPage = lazy(() => import('./pages/DataEntryPage'));
+const MonthlyReportPage = lazy(() => import('./pages/MonthlyReportPage'));
+const PublicReportPage = lazy(() => import('./pages/PublicReportPage'));
 
 export default function App() {
   return (
@@ -14,10 +16,10 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<AppShell />}>
-              <Route index element={<DashboardPage />} />
-              <Route path="entry" element={<DataEntryPage />} />
-              <Route path="report" element={<MonthlyReportPage />} />
-              <Route path="public" element={<PublicReportPage />} />
+              <Route index element={<Suspense fallback={null}><DashboardPage /></Suspense>} />
+              <Route path="entry" element={<Suspense fallback={null}><DataEntryPage /></Suspense>} />
+              <Route path="report" element={<Suspense fallback={null}><MonthlyReportPage /></Suspense>} />
+              <Route path="public" element={<Suspense fallback={null}><PublicReportPage /></Suspense>} />
             </Route>
           </Routes>
         </BrowserRouter>
