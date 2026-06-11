@@ -1,0 +1,10 @@
+{
+  "name": "ai-energy-tycoon",
+  "version": "1.0.0",
+  "description": "智域争锋·能源纪元 — 2.5D 回合制 AI 产业链大富翁",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  }
+}

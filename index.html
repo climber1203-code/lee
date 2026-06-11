@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智域争锋·能源纪元</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="scene"></div>
+
+  <div id="ui">
+    <!-- 左侧玩家列表 -->
+    <div id="player-list"></div>
+
+    <!-- 右上当前玩家面板 -->
+    <div id="current-panel"></div>
+
+    <!-- 右下日志 -->
+    <div id="log"></div>
+
+    <!-- 底部操作按钮 -->
+    <div id="controls">
+      <button id="btn-roll" disabled>🎲 掷骰</button>
+      <button id="btn-trade" disabled>🤝 交易</button>
+      <button id="btn-end" disabled>⏭️ 结束回合</button>
+    </div>
+
+    <!-- 提示浮层 -->
+    <div id="toast"></div>
+
+    <!-- 模态弹窗 -->
+    <div id="modal-overlay" class="hidden">
+      <div id="modal"></div>
+    </div>
+
+    <!-- 胜利画面 -->
+    <div id="winner" class="hidden">
+      <div id="winner-text"></div>
+      <button id="btn-restart" class="modal-btn primary">再来一局</button>
+    </div>
+
+    <!-- 开局设置 -->
+    <div id="setup">
+      <div id="setup-box">
+        <h1>智域争锋<span>·</span>能源纪元</h1>
+        <p class="sub">AI 产业链与能源经济 · 回合制策略对抗</p>
+        <p class="rule">建设 ⚡发电站 / 🖥️芯片厂 / 🧠AI公司，率先获得 10 个 AI 积分！<br>
+          集齐三类资产可触发 <b>🔗产业联动</b>：AI 公司仅耗 1 能源即产 2 积分。</p>
+        <div id="setup-modes"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
